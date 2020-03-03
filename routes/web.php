@@ -27,3 +27,7 @@ Route::get('/followers','FollowerController@index');
 Route::get('/tasks/create','TaskController@create');
 
 Route::POST('/tasks/store','TaskController@store');
+
+// 更新するための機能を作る（まずは編集画面）
+// タスクコントローラーのeditを実行?
+Route::get('/tasks/{id}/edit','TaskController@edit');

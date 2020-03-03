@@ -44,5 +44,22 @@ class TaskController extends Controller
         return redirect()->to('list');
     }
 
+    public function edit(int $id)
+    {
+        // 編集対象のデータを取得する(Taskモデルにお願いする::)
+        $task = Task::find($id);
+
+
+        // 編集画面を表示する(tasksフォルダの中editフォルダ)
+        // task（モデルから持ってきたデータ）って変数を返す
+        return view('tasks.edit', compact('task'));
+        //tasks/edit.blade.php
+
+        //$taskは渡す
+        //create.blade.phpをコピーでok
+
+    }
+
+
 
 }

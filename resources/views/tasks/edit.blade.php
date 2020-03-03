@@ -9,7 +9,7 @@
 <body>
     <form action="{{ url('tasks/store')}}"method='POST'>
     @csrf
-        <input type="tel" name="tel" value="{{ old('tel') }}">
+        <input type="tel" name="tel" value="{{ old('tel',$task->tel) }}">
         @error('tel')
             {{ $message }}
 
@@ -17,4 +17,4 @@
         <button type="submit">追加</button>
     </form>
 </body>
-</html> 
+</html>
