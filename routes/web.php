@@ -22,3 +22,8 @@ Route::get('/', function () {
 Route::get('/list','TaskController@index');
 
 Route::get('/coments','ComentController@index');
+///followersのとき、followerControllerのindexメソッドを
+Route::get('/followers','FollowerController@index');
+Route::get('/tasks/create','TaskController@create');
+
+Route::POST('/tasks/store','TaskController@store');

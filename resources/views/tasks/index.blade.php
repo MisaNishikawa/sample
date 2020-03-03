@@ -1,5 +1,7 @@
 @foreach ( $tasks as $task)
     <p>{{ $task->id }}</p>
-    <p>{{ $task->tell }}</p>
+    <p>{{ $task->tel }}</p>
     <p>{{ $task->created_at }}</p>
 @endforeach
+
+<a href="{{url('tasks/create')}}">新規作成</a>

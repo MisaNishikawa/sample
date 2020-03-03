@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateTask;
 //use === このクラスを使います的な意味
 use App\Task;
 
@@ -23,4 +24,25 @@ class TaskController extends Controller
         return view('tasks.index', compact('tasks'));
         dd(1234);
     }
+    public function create()
+    {
+    return view('tasks.create');
+    }
+
+
+    public function store(CreateTask $request)
+    {
+        // dd($request->all(),$request->input('tel'));
+        
+        //データの保存(model)　タスクにお願いする 
+        //Taskクラスのcreateっていうメソッドを使うと保存ができる。引数が一個、配列が入れれる。（入力したいカラム）
+        Task::create([
+            'tel'=> $request->input('tel'),
+        ]);
+
+        //一覧に戻る(view) /list(urlのこと)に戻る
+        return redirect()->to('list');
+    }
+
+
 }
