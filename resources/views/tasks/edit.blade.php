@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{ route('tasks.update',['id'=>$task->id]) }}"method='POST'>
+    <form action="{{ route('tasks.update',['task'=>$task->id]) }}"method='POST'>
     @method('put')
     @csrf
         <input type="tel" name="tel" value="{{ old('tel',$task->tel) }}">

@@ -6,8 +6,8 @@
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvtasker within a group which
+| contains the "web" mtaskdleware group. Now create something great!
 |
 */
 // Route::get←どのURLのときに何をするか
@@ -30,10 +30,10 @@ Route::POST('/tasks/store','TaskController@store');
 
 // 更新するための機能を作る（まずは編集画面）
 // タスクコントローラーのeditを実行?
-// Route::get('/tasks/{id}/edit','TaskController@edit');
+// Route::get('/tasks/{task}/edit','TaskController@edit');
 
 
-Route::get('/tasks/{id}/edit','TaskController@edit')->name('tasks.edit');
-Route::put('/tasks/{id}/update','TaskController@update')->name('tasks.update');
+Route::get('/tasks/{task}/edit','TaskController@edit')->name('tasks.edit');
+Route::put('/tasks/{task}/update','TaskController@update')->name('tasks.update');
 
-Route::delete('/tasks/{id}/delete', 'TaskController@delete')->name('tasks.delete');
+Route::delete('/tasks/{task}/delete', 'TaskController@delete')->name('tasks.delete');

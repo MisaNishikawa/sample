@@ -44,11 +44,11 @@ class TaskController extends Controller
         return redirect()->to('list');
     }
 
-    public function edit(int $id)
+    public function edit(Task $task)
     {
         // 編集対象のデータを取得する(Taskモデルにお願いする::)
         //find=値を一つ取る？
-        $task = Task::find($id);
+        // $task = Task::find($id);
 
 
         // 編集画面を表示する(tasksフォルダの中editフォルダ)
@@ -61,10 +61,10 @@ class TaskController extends Controller
 
     }
 
-    public function update(UpdateTask $request, int $id)
+    public function update(UpdateTask $request, Task $task)
     {
         //更新する対象のデータを取得
-        $task = Task::find($id);
+        // $task = Task::find($id);
         //dd($request->tel,$request->input('tel'));
         //更新
         $task->update([
@@ -78,10 +78,10 @@ class TaskController extends Controller
     }
 
     //このidは数字しか入っちゃダメてこと
-    public function delete(int $id)
+    public function delete(task $task)
     {
         //選択されたデータの取得($id＝ユーザーが選択したtask)
-        $task = Task::find($id);
+        // $task = Task::find($id);
         // dd($task);
         //選択されたデータの削除
         $task->delete();
