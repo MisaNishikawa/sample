@@ -30,4 +30,10 @@ Route::POST('/tasks/store','TaskController@store');
 
 // 更新するための機能を作る（まずは編集画面）
 // タスクコントローラーのeditを実行?
-Route::get('/tasks/{id}/edit','TaskController@edit');
+// Route::get('/tasks/{id}/edit','TaskController@edit');
+
+
+Route::get('/tasks/{id}/edit','TaskController@edit')->name('tasks.edit');
+Route::put('/tasks/{id}/update','TaskController@update')->name('tasks.update');
+
+Route::delete('/tasks/{id}/delete', 'TaskController@delete')->name('tasks.delete');

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\UpdateTask;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateTask;
 //use === このクラスを使います的な意味
@@ -47,6 +47,7 @@ class TaskController extends Controller
     public function edit(int $id)
     {
         // 編集対象のデータを取得する(Taskモデルにお願いする::)
+        //find=値を一つ取る？
         $task = Task::find($id);
 
 
@@ -60,6 +61,34 @@ class TaskController extends Controller
 
     }
 
+    public function update(UpdateTask $request, int $id)
+    {
+        //更新する対象のデータを取得
+        $task = Task::find($id);
+        //dd($request->tel,$request->input('tel'));
+        //更新
+        $task->update([
 
+            'tel' =>$request->tel,
+
+        ]);
+
+        //一覧画面に戻る
+       return redirect()->to('/list');
+    }
+
+    //このidは数字しか入っちゃダメてこと
+    public function delete(int $id)
+    {
+        //選択されたデータの取得($id＝ユーザーが選択したtask)
+        $task = Task::find($id);
+        // dd($task);
+        //選択されたデータの削除
+        $task->delete();
+
+
+        //一覧画面に戻る
+        return redirect()->to('/list');
+    }
 
 }
