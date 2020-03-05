@@ -22,6 +22,12 @@ Route::get('/', function () {
 Route::get('/list','TaskController@index');
 
 Route::get('/coments','ComentController@index');
+
+Route::get('/coments/create','ComentController@create');
+
+Route::post('/coments/store','ComentController@store');
+
+
 ///followersのとき、followerControllerのindexメソッドを
 Route::get('/followers','FollowerController@index');
 Route::get('/tasks/create','TaskController@create');
@@ -36,4 +42,5 @@ Route::POST('/tasks/store','TaskController@store');
 Route::get('/tasks/{task}/edit','TaskController@edit')->name('tasks.edit');
 Route::put('/tasks/{task}/update','TaskController@update')->name('tasks.update');
 
+Route::delete('/tasks/{task}/delete', 'TaskController@delete')->name('tasks.delete');
 Route::delete('/tasks/{task}/delete', 'TaskController@delete')->name('tasks.delete');
